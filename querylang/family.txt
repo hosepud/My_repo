@@ -1,0 +1,25 @@
+(mother Bob Alice)
+(father Bob John)
+(mother Jim Alice)
+(father Jim John)
+(father Alice Paul)
+(mother Alice Jane)
+(father Lily Bob)
+(mother Lily Maria)
+(mother Alex Allie)
+(father Alex Jim)		
+(mother (Allie Junior) Kelly)	
+(father (Allie Junior) Jim)
+
+(rule sibling (?a ?b) (or (and (father ?a ?x) (father ?b ?x)) (and (mother ?a ?x) (mother ?b ?x))))
+
+(rule grandfather (?gf ?name) (and (father ?name2 ?gf) (or (mother ?name ?name2) (father ?name ?name2))))
+
+(rule grandmother (?gm ?name) (and (mother ?name2 ?gm) (or (mother ?name ?name2) (father ?name ?name2))))
+
+(rule grandparent (?g ?k) (or (grandfather (?g ?k)) (grandmother (?g ?k))))
+
+(rule grandchild (?k ?g) (grandparent (?g ?k)))
+
+
+

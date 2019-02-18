@@ -1,0 +1,25 @@
+
+#asks for input
+(define text (input))
+#prints input text
+(newline)
+(print text)
+(newline)
+
+#asks for a filename
+(print """ENTER FILENAME\n""")
+(define file (input))
+#writes text to file
+
+(write file text)
+
+#reads text from file
+(define readtext (read file))
+#prints what was read
+(print readtext)
+(newline)
+
+#(newline) prints a newline
+
+#this is a comment
+

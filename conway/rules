@@ -1,0 +1,4 @@
+1. A live cell with fewer than two live neighbors dies.
+2. A live cell with more than three live neighbors also dies.
+3. A live cell with exactly two or three live neighbors lives.
+4. A dead cell with exactly three live neighbors becomes alive.

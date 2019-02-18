@@ -1,0 +1,18 @@
+(define fizzbuzz (@ x 
+	(case 
+		(= x 101) 
+			x 
+		(= (% x 15) 0) 
+			(and (print """FizzBuzz\n""") (fizzbuzz (+ x 1))) 
+		(= (% x 3) 0) 
+			(and (print """Fizz\n""") (fizzbuzz (+ x 1)))
+		(= (% x 5) 0)
+			(and (print """Buzz\n""") (fizzbuzz (+ x 1)))
+		else
+			(and (print-num x) (newline) (fizzbuzz (+ x 1)))))) 
+
+
+#comment
+(fizzbuzz 0)
+
+

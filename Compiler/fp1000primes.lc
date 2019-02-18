@@ -1,0 +1,24 @@
+
+(define is-prime-inner (@ x (@ n 
+	(case 
+		(= n 1) 
+			true
+		(= (% x n) 0)
+			false
+		else
+			((is-prime-inner x) (- n 1))))))
+
+	
+(define 7920 (+ (* 79 100) 20))	
+
+(define is_prime (@ n 
+	((is-prime-inner n) (+ (/ n 2) 1))))
+
+(define lst (enum 0 7920))
+(define first1000primes (filter (@ x (is_prime x)) lst))
+
+(print-num (list-ref first1000primes (- (length first1000primes) 1)))
+(newline)
+
+
+

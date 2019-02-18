@@ -1,0 +1,49 @@
+
+(define is-prime-inner (@ x (@ n 
+	(case 
+		(= n 1) 
+			true
+		(= (% x n) 0)
+			false
+		else
+			((is-prime-inner x) (- n 1))))))
+
+	
+	
+(define is_prime (@ n 
+	((is-prime-inner n) (+ (/ n 2) 1))))
+
+(define 1000 (* 10 100))
+
+(define 1000primes (@ ctr (@ n (@ lst 
+	(case 
+		(= ctr 1000)
+			lst 
+		(is_prime n) 
+			(((1000primes (+ 1 ctr)) (+ 1 n)) (pair n lst))
+		else
+			(((1000primes ctr) (+ 1 n)) lst))))))
+
+
+(define print-primes (@ lst 
+	(if (isnil lst)
+		(newline)
+		(or (print-num (first lst)) (newline) (print-primes (second lst))))))
+
+
+(define printbool (@ b 
+	(if b
+		(print """true""")
+		(print """false"""))))
+
+(define first1000primes (((1000primes 0) 1) nil))
+(print-primes first1000primes)
+(print-num (length first1000primes))
+(newline)
+(print-num (list-ref first1000primes 0))
+(newline)
+(print """Sum of first 1000 primes\n
+below, I am a multi-line string\n""")
+(print-num (reduce + 0 first1000primes))
+(newline)
+

@@ -1,0 +1,18 @@
+
+(define print-lst (@ lst (if (isnil lst) nil (or (print-num (first lst)) 
+						(print-lst (second lst))))))
+
+
+(print """Hello World\n
+	multi line??\n
+""")
+
+(define lst (enum 0 10))
+
+(print-lst lst)
+
+(newline)
+
+(print-num ((list-ref lst) 3))
+
+(newline)

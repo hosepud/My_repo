@@ -1,0 +1,54 @@
+
+=> (?parent ?kid ?name)
+
+The above query will result in
+(father (Allie Junior) Jim)
+(mother (Allie Junior) Kelly)
+(father Alex Jim)
+(mother Alex Allie)
+(mother Lily Maria)
+(father Lily Bob)
+(mother Alice Jane)
+(father Alice Paul)
+(father Jim John)
+(mother Jim Alice)
+(father Bob John)
+(mother Bob Alice)
+
+Meaning Jim is Allie Junior's father. Kelly is Allie Junior's mother etc.
+The query (?p ?c ?n) will have the same result.
+Variables always start with a '?'.
+
+
+=> (?parent Lily ?name)
+
+Results in
+(mother Lily Maria)
+(father Lily Bob)
+
+
+=> (or (father Lily ?name) (mother Lily ?name))
+(or (father Lily Maria) (mother Lily Maria))
+(or (father Lily Bob) (mother Lily Bob))
+
+Here the 'or' query asks for ?name who is EITHER a father OR a mother of Lily.
+Bob is either her father or her mother. So is Maria.
+
+=>(and (father Lily ?name) (mother Lily ?name))
+Doesn't result in anything since no binding of ?name satisfies the requirement that ?name is both a father and a mother to lily
+
+
+=>(sibling (?a ?b))
+
+Firstly, on syntax, rules have their 'arguments' in brackets.
+The query results in 
+(sibling ((Allie Junior) Alex))
+(sibling (Alex (Allie Junior)))
+(sibling (Jim Bob))
+(sibling (Bob Jim))
+
+Since the sibling relationship goes both ways.
+
+Rules can be used to define new rules, can be combined with 'and' and 'or'.
+
+Fianlly, this query language does not have a NOT operator.
